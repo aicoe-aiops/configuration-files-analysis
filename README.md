@@ -1,61 +1,39 @@
-project-template
-==============================
+# Configuration file analysis
 
-template for the team to use
+## Overview
 
-Project Organization
+Software systems have become more flexible and feature-rich. For example, the configuration file for MySQL has more than 200 configuration entries with different subentries.  As a result, configuring these systems is a complicated task and frequently causes configuration errors. Currently, in most cases, misconfigurations are detected by manually specified rules. However, this process is tedious and not scalable. In this project, we propose data-driven methods to detect misconfigurations by discovering frequently occurring patterns in configuration files. 
+
+## Misconfiguration detection framework
+
+The misconfiguration detection framework adopted in this project is inspired by the research paper "Synthesizing Configuration File Specifications with Association Rule Learning". Association rule learning is a method to discover frequently occurring patterns or associations between variables in a dataset. 
+
+![image alt text](notebooks/images/framework.png)Figure 1: Overview of the misconfiguration detection framework. It has two important modules: translator and learner. 
+
+* Translator: Translator works as a parser, translator converts raw configuration files into an intermediate representation which generally has a format of key, value, data type, frequency (k, v, τ, f)
+
+* Learner: Learner discovers frequently occurring patterns or associations between keywords in configuration files to derive rules.
+
+Data type error detection:  In this method, we match the data type of target key with the data type information inferred from the training set. An error is reported if the matching fails.
+
+Spelling error detection: In this method, we find spelling errors by mapping lower frequency keywords to a similar higher frequency keyword. We calculated the similarity between keywords using Levenshtein distance. 
+
+## Project organization
+
 ------------
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── Pipfile            <- Pipfile stating package configuration as used by Pipenv.
-    ├── Pipfile.lock       <- Pipfile.lock stating a pinned down software stack with as used by Pipenv.
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file stating direct dependencies if a library
-    │                         is developed.
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    ├── .thoth.yaml        <- Thoth's configuration file
-    ├── .aicoe-ci.yaml     <- AICoE CI configuration file (https://github.com/AICoE/aicoe-ci)
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    ├── src                
 
+    │   ├── data
 
---------
+    │   │   └── data_downloader.py  <- Script to download the configuration file dataset
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+    ├── notebooks          
+
+    |	└── Misconfiguration_detection_framework_for_data_type_errors.ipynb <- notebook for data type error detection in configuration files.
+    	└── Misconfiguration_detection_framework_for_spelling_errors.ipynb <- notebook for spelling error detection in configuration files.
+
+## Conclusion
+
+In this project, we discovered frequently occurring patterns in MySQL configuration files to detect misconfiguration. We experimented with two types of errors based on patterns in configuration files.  We detected data type errors by matching the target key data type with the data type information inferred from the training set. We detected spelling error by mapping lower frequency keyword to a similar higher frequency keyword. We can easily extend this to include other types of errors based on patterns in the configuration files. The results suggest that we can automate the misconfiguration detection task using data-driven methods for all types of key-values based configuration files. 
+
