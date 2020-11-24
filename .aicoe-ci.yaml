@@ -2,3 +2,13 @@
 # Example `.aicoe-ci.yaml` with a full list of config options is available here: https://github.com/AICoE/aicoe-ci/blob/master/docs/.aicoe-ci.yaml
 check:
   - thoth-precommit
+  - thoth-build
+build:
+  build-stratergy: Source
+  build-source-script: "image:///opt/app-root/builder"
+  base-image: quay.io/thoth-station/s2i-custom-notebook:latest
+  custom-tag: latest
+  registry: quay.io
+  registry-org: aicoe
+  registry-project: configuration-files-analysis
+  registry-secret: aicoe-pusher-secret
