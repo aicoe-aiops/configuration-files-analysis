@@ -117,13 +117,13 @@ In this project, we discovered frequently occurring patterns in MySQL configurat
 
 ### Steps to get you started:
 
-1. Visit [jupyterhub.datahub.redhat.com](https://jupyterhub.datahub.redhat.com/)
+1. Visit [https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login](https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login)
 
-2. Login with your Kerberos ID
+2. You can login by using your Google account.
 
-3. In this Spawn screen, select s2i-configuration-files-analysis-notebook:latest, in the memory size select Large ( Memory: 8Gi, CPU 2)
+3. In this Spawn screen, select configuration-files-analysis:latest, in the memory size select Large
 
-4. Once your server starts, go into the directory named categorical-encoding-yyyy-mm-dd-hh-mm/demo
+4. Once your server starts, go into the directory named notebooks-yyyy-mm-dd-hh-mm
 
 ### How to Contribute / Provide feedback
 
