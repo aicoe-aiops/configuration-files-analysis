@@ -1,0 +1,13 @@
+# See the OWNERS docs at https://go.k8s.io/owners
+
+approvers:
+  - durandom
+  - tumido
+  - SankBad
+  - MichaelClifford
+  - Shreyanand
+reviewers:
+  - tumido
+  - SankBad
+  - MichaelClifford
+  - Shreyanand
