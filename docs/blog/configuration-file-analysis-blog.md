@@ -113,23 +113,4 @@ In this project, we discovered frequently occurring patterns in MySQL configurat
 
 \[8\] [https://haydenjames.io/mysql-query-cache-size-performance/](https://haydenjames.io/mysql-query-cache-size-performance/)
 
-# Project Materials
-
-### Steps to get you started:
-
-1. Visit [https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login](https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login)
-
-2. You can login by using your Google account.
-
-3. In this Spawn screen, select configuration-files-analysis:latest, in the memory size select Large
-
-4. Once your server starts, go into the directory named notebooks-yyyy-mm-dd-hh-mm
-
-### How to Contribute / Provide feedback
-
-* Github Repository: [https://github.com/aicoe-aiops/configuration-files-analysis](https://github.com/aicoe-aiops/configuration-files-analysis)
-
-* You can open up a PR on the Git Repository highlighting the feature or issue, and we will address it.
-
-* You can also reach out to sbadhe@redhat.com for any questions.
 
