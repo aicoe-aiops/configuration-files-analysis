@@ -1,0 +1,6 @@
+awscli
+configparser
+nltk
+pandas
+pathvalidate
+wget
